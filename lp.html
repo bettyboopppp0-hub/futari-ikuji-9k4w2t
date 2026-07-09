@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ふたり育児ミッション｜パパが動く、ママが笑う。夫婦の育児分担アプリ</title>
+<meta name="description" content="「言わないと動いてくれない…」を卒業。ミッション形式でパパが自分から動きたくなる、夫婦の育児分担アプリ。買い切り、インストール不要。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#2e6f6a;--teal-l:#e4f2f0;--navy:#2b3a55;--papa:#4a7fb5;--mama:#e08a8a;
+  --gold:#e8b93c;--bg:#f7f9f8;--text:#33413f;--sub:#7d8c89;--line:#e3eae8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Zen Maru Gothic',sans-serif;background:var(--bg);color:var(--text);font-size:15.5px;line-height:1.9}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+section{padding:52px 0}
+h2{font-size:22px;font-weight:900;color:var(--navy);text-align:center;margin-bottom:8px}
+.lead{text-align:center;color:var(--sub);font-size:13.5px;margin-bottom:28px}
+.cta{display:block;background:linear-gradient(135deg,#e88a3c,#e8b93c);color:#fff;text-align:center;border-radius:999px;font-weight:900;font-size:17px;padding:17px;text-decoration:none;box-shadow:0 6px 18px rgba(232,138,60,.35);transition:transform .15s}
+.cta:active{transform:scale(.97)}
+.cta small{display:block;font-size:11px;font-weight:500;opacity:.9}
+/* hero */
+.hero{background:linear-gradient(160deg,var(--teal),#3f8f88 60%,#4a7fb5);color:#fff;padding:56px 0 64px;text-align:center}
+.hero .badge{display:inline-block;background:rgba(255,255,255,.2);border-radius:999px;padding:4px 16px;font-size:12px;font-weight:700;margin-bottom:14px}
+.hero h1{font-size:30px;font-weight:900;line-height:1.5}
+.hero .sub{margin:14px 0 26px;font-size:14px;opacity:.95}
+.phone{background:#fff;border-radius:28px;padding:14px 12px;max-width:290px;margin:0 auto 28px;box-shadow:0 18px 50px rgba(0,0,0,.28);color:var(--text);text-align:left}
+.phone .bar{background:var(--navy);color:#fff;border-radius:14px;padding:12px;margin-bottom:10px}
+.phone .bar .t{font-size:10px;opacity:.85}
+.phone .bar .n{font-weight:900;font-size:15px}
+.phone .bar .pbar{background:rgba(255,255,255,.25);height:7px;border-radius:99px;margin-top:6px;overflow:hidden}
+.phone .bar .pbar>div{background:var(--gold);height:100%;width:62%;border-radius:99px}
+.phone .mrow{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;padding:7px 4px;border-bottom:1px dashed var(--line)}
+.phone .mrow:last-child{border:none}
+.phone .mrow .pt{margin-left:auto;background:var(--gold);color:#fff;border-radius:99px;font-size:9.5px;padding:1px 7px;font-weight:900}
+.phone .mrow .go{background:var(--teal);color:#fff;border-radius:99px;font-size:10px;padding:4px 9px;font-weight:900}
+/* checks */
+.check-list{background:#fff;border-radius:18px;padding:22px;box-shadow:0 2px 10px rgba(43,58,85,.07)}
+.check-list li{list-style:none;padding:9px 0 9px 34px;position:relative;border-bottom:1px dashed var(--line);font-weight:700;font-size:14.5px}
+.check-list li:last-child{border:none}
+.check-list li::before{content:'😢';position:absolute;left:0}
+.arrow-msg{text-align:center;font-weight:900;color:var(--teal);font-size:17px;margin-top:24px}
+/* features */
+.feat{background:#fff;border-radius:18px;padding:20px;margin-bottom:14px;box-shadow:0 2px 10px rgba(43,58,85,.07);display:flex;gap:14px}
+.feat .ic{font-size:32px;flex-shrink:0}
+.feat h3{font-size:15.5px;font-weight:900;color:var(--navy);margin-bottom:4px}
+.feat p{font-size:13.5px}
+/* steps */
+.step{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.step .num{background:var(--teal);color:#fff;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-weight:900;flex-shrink:0}
+.step h3{font-size:15px;font-weight:900;color:var(--navy)}
+.step p{font-size:13.5px}
+/* voice */
+.voice{background:#fff;border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 2px 10px rgba(43,58,85,.07);font-size:13.5px}
+.voice .who{color:var(--sub);font-size:12px;margin-top:8px;font-weight:700}
+.voice .stars{color:var(--gold);letter-spacing:2px}
+/* price */
+.price-box{background:#fff;border-radius:22px;padding:30px 24px;text-align:center;box-shadow:0 4px 20px rgba(43,58,85,.1);border:2.5px solid var(--gold)}
+.price-box .old{color:var(--sub);text-decoration:line-through;font-size:15px}
+.price-box .now{font-size:42px;font-weight:900;color:#e8583c}
+.price-box .now small{font-size:16px}
+.price-box .note{font-size:12px;color:var(--sub);margin:8px 0 18px}
+/* faq */
+.faq{background:#fff;border-radius:16px;padding:16px 18px;margin-bottom:12px;box-shadow:0 2px 10px rgba(43,58,85,.07)}
+.faq .q{font-weight:900;color:var(--navy);font-size:14px}
+.faq .a{font-size:13.5px;margin-top:4px}
+footer{text-align:center;padding:34px 0 46px;color:var(--sub);font-size:11.5px}
+.fade{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.fade.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="badge">👨‍👩‍👧 夫婦の育児分担アプリ</span>
+    <h1>パパが動く、<br>ママが笑う。</h1>
+    <p class="sub">「言わないと動いてくれない…」を卒業。<br>ミッション形式だから、パパが<b>自分から</b>動きたくなる。</p>
+    <div class="phone">
+      <div class="bar">
+        <div class="t">パパレベル ・ 累計620pt</div>
+        <div class="n">⭐ たよれるパパ</div>
+        <div class="pbar"><div></div></div>
+      </div>
+      <div class="mrow">🛁 お風呂に入れる <span class="pt">25pt</span> <span class="go">できた!</span></div>
+      <div class="mrow">🌙 寝かしつけ <span class="pt">30pt</span> <span class="go">できた!</span></div>
+      <div class="mrow">🍼 ミルク・授乳サポート <span class="pt">15pt</span> <span class="go">できた!</span></div>
+    </div>
+    <a class="cta" href="#price" style="max-width:340px;margin:0 auto">今すぐはじめる<small>買い切り・インストール不要</small></a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap fade">
+    <h2>こんなモヤモヤ、ありませんか?</h2>
+    <p class="lead">ひとつでも当てはまったら、このアプリの出番です</p>
+    <ul class="check-list">
+      <li>言わないと動いてくれない。言うと空気が悪くなる</li>
+      <li>「手伝おうか?」…手伝うじゃなくて、一緒にやってほしい</li>
+      <li>やり方を説明するのがもう疲れた</li>
+      <li>私ばっかり…と思ってしまう自分もイヤ</li>
+      <li>パパも「何をすればいいか分からない」と言う</li>
+      <li>ケンカじゃなくて、チームになりたい</li>
+    </ul>
+    <p class="arrow-msg">▼ その悩み、「ミッション化」で解決できます</p>
+  </div>
+</section>
+
+<section style="background:#fff">
+  <div class="wrap fade">
+    <h2>6つの機能で、育児がチーム戦に</h2>
+    <p class="lead">夫婦それぞれのスマホで使えます</p>
+    <div class="feat"><span class="ic">🎯</span><div><h3>ミッション形式のタスク分担</h3><p>「お風呂25pt」「寝かしつけ30pt」——タスクをクリアするとポイントが貯まってレベルアップ。見習いパパ→レジェンドパパへ。ゲーム感覚だから続く!</p></div></div>
+    <div class="feat"><span class="ic">💬</span><div><h3>おねがい・報告はLINEでワンタップ</h3><p>おねがいしたいことにチェックして送信ボタンを押すだけで、LINEにきれいな「おねがいミッション」が届く。パパからは「やったよ報告」がワンタップで返せる。</p></div></div>
+    <div class="feat"><span class="ic">📖</span><div><h3>わが家流に編集できる「やり方ガイド」</h3><p>ミルクの作り方、お風呂の手順、NGポイントまで最初から入ってる。しかも全部編集OK。「うちはこうする」を書いておけば、説明いらず。</p></div></div>
+    <div class="feat"><span class="ic">⚖️</span><div><h3>がんばりの見える化＆いたわり提案</h3><p>1週間のがんばりをグラフとバランスバーで表示。偏りが出たら「代わりにスイーツ買ってきてあげよう🍰」など、いたわりミッションを自動提案。</p></div></div>
+    <div class="feat"><span class="ic">👶</span><div><h3>赤ちゃん引き継ぎメモ</h3><p>最後のミルク・ねんね・きげんをメモしてLINEでパッと共有。「ミルク何時だっけ?」の聞き直しがなくなる交代のお守り。</p></div></div>
+    <div class="feat"><span class="ic">💝</span><div><h3>ありがとうスタンプ</h3><p>「助かった〜!」「さすがすぎる!」をワンタップでLINEへ。感謝の履歴も貯まっていくから、ふたりのがんばりが形に残る。</p></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap fade">
+    <h2>使い方はかんたん3ステップ</h2>
+    <p class="lead">アプリストア不要。ブラウザで開くだけ</p>
+    <div class="step"><span class="num">1</span><div><h3>ふたりのスマホでリンクを開く</h3><p>購入後に届くリンクをそれぞれのスマホで開いて、ホーム画面に追加。ママは「ママモード」、パパは「パパモード」を選ぶだけ。</p></div></div>
+    <div class="step"><span class="num">2</span><div><h3>ママはおねがい、パパはミッションクリア</h3><p>ママはチェックしてLINEでおねがい。パパは「できた!」でポイントゲット&報告もLINEでワンタップ。</p></div></div>
+    <div class="step"><span class="num">3</span><div><h3>週末はグラフを見ながら「ありがとう」</h3><p>がんばりバランスを見て、いたわりミッションで労い合う。ケンカが減って、チームになっていく。</p></div></div>
+  </div>
+</section>
+
+<section style="background:#fff">
+  <div class="wrap fade">
+    <h2>使ったご夫婦の声</h2>
+    <p class="lead">※サンプルイメージ・個人の感想です</p>
+    <div class="voice"><span class="stars">★★★★★</span><br>「レベルアップが楽しいらしく、夫が自分からお風呂に入れてくれるように。『言わせないで』のストレスが減りました」<div class="who">30代ママ・生後4ヶ月</div></div>
+    <div class="voice"><span class="stars">★★★★★</span><br>「正直、何をすればいいか分からなかった。やり方ガイドのおかげで『自分でもできる』が増えて、育児が楽しくなった」<div class="who">30代パパ・生後7ヶ月</div></div>
+    <div class="voice"><span class="stars">★★★★☆</span><br>「バランスバーで偏りが見えるのがいい。感情的にならずに『今週お願いね』と言えるようになりました」<div class="who">20代ママ・1歳</div></div>
+  </div>
+</section>
+
+<section id="price">
+  <div class="wrap fade">
+    <h2>価格</h2>
+    <p class="lead">アプリは買い切り。月額料金はありません</p>
+    <div class="price-box">
+      <p style="font-weight:900;color:var(--navy)">🤝 ふたり育児ミッション</p>
+      <p class="old">通常価格 980円</p>
+      <p class="now">480<small>円(税込)</small></p>
+      <p class="note">リリース記念価格 ・ 買い切り ・ 夫婦2台で使えてこの価格<br>機能は随時アップデート予定</p>
+      <a class="cta buy-btn" href="#">リリース記念価格で購入する<small>お支払い後すぐに使えます</small></a>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff">
+  <div class="wrap fade">
+    <h2>よくある質問</h2>
+    <div class="faq"><p class="q">Q. アプリのインストールは必要?</p><p class="a">不要です。リンクをブラウザで開いて「ホーム画面に追加」するだけで、アプリのように使えます(iPhone・Android両対応)。</p></div>
+    <div class="faq"><p class="q">Q. 夫婦2人で使うのに2つ買う必要はある?</p><p class="a">いいえ、1回の購入でおふたりのスマホでお使いいただけます。</p></div>
+    <div class="faq"><p class="q">Q. データはどこに保存されるの?</p><p class="a">それぞれのスマホの中だけに保存され、外部に送信されません。おねがいや報告の共有は、ご自身のLINEから送る形なので安心です。</p></div>
+    <div class="faq"><p class="q">Q. うちのやり方と違うんだけど…</p><p class="a">大丈夫!ミッションもやり方ガイドもぜんぶ編集できます。「わが家流」に書き換えて、ふたりの共通マニュアルにしてください。</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap fade" style="text-align:center">
+    <h2>育児は、ふたりのミッション。</h2>
+    <p style="margin:10px 0 26px">「私ばっかり」から「ふたりで」へ。<br>今日から、チームになりませんか?</p>
+    <a class="cta buy-btn" href="#" style="max-width:360px;margin:0 auto">リリース記念 480円ではじめる<small>買い切り・夫婦2台OK・アップデート無料</small></a>
+  </div>
+</section>
+
+<footer>ふたり育児ミッション<br>© 2026 futari-ikuji mission</footer>
+
+<script>
+// 購入リンク：販売開始時にBASE等の商品ページURLをここに設定
+const BUY_URL = '';
+document.querySelectorAll('.buy-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    if (BUY_URL) { btn.href = BUY_URL; return; }
+    e.preventDefault();
+    alert('まもなく販売開始!もう少しだけお待ちください🤝');
+  });
+});
+// スクロールフェードイン
+const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) en.target.classList.add('in'); }), { threshold: .12 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
