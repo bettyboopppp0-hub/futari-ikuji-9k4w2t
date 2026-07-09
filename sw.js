@@ -1,4 +1,4 @@
-const CACHE = 'futari-v1';
+const CACHE = 'futari-v2';
 const ASSETS = [
   './',
   './index.html',
