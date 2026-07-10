@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ふたり育児ミッション</title>
-<meta name="description" content="夫婦で育児を分担するミッションアプリ。パパは、わが家のヒーロー。">
+<meta name="description" content="夫婦で育児を分担するミッションアプリ。パパが動く、ママが笑う。">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <meta name="theme-color" content="#2e6f6a">
@@ -46,8 +46,6 @@ nav button.on{color:var(--teal)}
 /* mission */
 .level-card{background:linear-gradient(135deg,var(--navy),#3d5378);color:#fff;border-radius:var(--radius);padding:18px;margin-bottom:14px;position:relative;overflow:hidden}
 .level-card.mama-theme{background:linear-gradient(135deg,#b56a6a,#d18f8f)}
-.level-card.hero-theme{background:linear-gradient(135deg,#1f3d75,#4a7fb5)}
-.level-card.hero-theme::after{content:'🦸';position:absolute;right:6px;bottom:-8px;font-size:64px;opacity:.16}
 .level-title{font-size:12px;opacity:.85}
 .level-name{font-size:21px;font-weight:900;margin:2px 0 8px}
 .level-bar{background:rgba(255,255,255,.25);border-radius:999px;height:10px;overflow:hidden}
@@ -131,12 +129,12 @@ input::placeholder{font-size:13px;color:#b3c0bd}
 <div id="setup" class="hidden">
   <div class="inner">
     <h1>🤝 ふたり育児ミッション</h1>
-    <p class="sub" style="text-align:center">パパは、わが家のヒーロー。<br>まずはあなたのことを教えてね</p>
+    <p class="sub" style="text-align:center">パパが動く、ママが笑う。<br>まずはあなたのことを教えてね</p>
     <div class="card" style="margin-top:20px">
       <h2>あなたはどっち?</h2>
       <div class="role-pick">
         <button id="pick-mama" onclick="pickRole('mama')"><span class="big">👩</span>ママ</button>
-        <button id="pick-papa" onclick="pickRole('papa')"><span class="big">🦸</span>パパ</button>
+        <button id="pick-papa" onclick="pickRole('papa')"><span class="big">👨</span>パパ</button>
       </div>
       <div class="form-row"><label>赤ちゃんの呼び名(任意)</label><input type="text" id="setup-baby" placeholder="例：ここちゃん"></div>
       <button class="btn btn-primary" style="width:100%;margin-top:6px" onclick="finishSetup()">はじめる!</button>
@@ -254,7 +252,7 @@ input::placeholder{font-size:13px;color:#b3c0bd}
   <div class="card">
     <h2>👤 あなたの設定</h2>
     <div class="memo-row"><label>役割</label>
-      <select id="set-role"><option value="mama">👩 ママ</option><option value="papa">🦸 パパ(ヒーロー)</option></select>
+      <select id="set-role"><option value="mama">👩 ママ</option><option value="papa">👨 パパ</option></select>
     </div>
     <div class="memo-row"><label>赤ちゃん</label><input type="text" id="set-baby" placeholder="呼び名"></div>
     <button class="btn btn-primary btn-sm" onclick="saveSettings()">保存する</button>
@@ -316,17 +314,13 @@ const DEFAULT_TASKS=[
  {id:'kaimono',emoji:'🛒',name:'買い出し',pt:15,steps:['出る前に「他に必要なものある?」と一言聞く','おむつのサイズを写真で撮っておくと間違えない','ミルクの銘柄も要チェック(メーカー違いに注意)'],tip:'頼まれたもの+ちょっとしたおやつを買って帰ると株が上がる',ng:'サイズ・銘柄の自己判断はNG。迷ったら写真を送って確認'},
  {id:'soji',emoji:'🧹',name:'そうじ・片づけ',pt:15,steps:['赤ちゃんが動き回る床を最優先','おもちゃの消毒・拭きあげ','ほこりは赤ちゃんの高さ(床上30cm)にたまりやすい'],tip:'完璧じゃなくていい。「床に物がない」だけで大成功',ng:''}
 ];
-const LEVELS_MAMA=[
+const LEVELS=[
  {pt:0,name:'見習い',emoji:'🐣'},{pt:100,name:'かけだし',emoji:'🐥'},{pt:300,name:'いちにんまえ',emoji:'💪'},
  {pt:600,name:'たよれる',emoji:'⭐'},{pt:1000,name:'スーパー',emoji:'🌟'},{pt:1500,name:'カリスマ',emoji:'👑'},{pt:2500,name:'レジェンド',emoji:'🏆'}
 ];
-const LEVELS_PAPA=[
- {pt:0,name:'ルーキーヒーロー',emoji:'🦸'},{pt:100,name:'ブロンズヒーロー',emoji:'🥉'},{pt:300,name:'シルバーヒーロー',emoji:'🥈'},
- {pt:600,name:'ゴールドヒーロー',emoji:'🥇'},{pt:1000,name:'プラチナヒーロー',emoji:'🌟'},{pt:1500,name:'カリスマヒーロー',emoji:'👑'},{pt:2500,name:'レジェンドヒーロー',emoji:'🏆'}
-];
 const THANKS_STAMPS=[
  {e:'🙏',t:'ありがとう!助かった〜'},{e:'💮',t:'今日ほんとお疲れさま!'},{e:'😍',t:'さすがすぎる!!'},
- {e:'☕',t:'ゆっくり休んでね'},{e:'🍀',t:'いつも本当に感謝してる'},{e:'🦸',t:'うちのヒーロー、さすが!'}
+ {e:'☕',t:'ゆっくり休んでね'},{e:'🍀',t:'いつも本当に感謝してる'},{e:'🎉',t:'ナイスミッションクリア!'}
 ];
 const ITAWARI=[
  '帰りにコンビニスイーツを買ってきてあげよう🍰',
@@ -382,9 +376,7 @@ function lineShare(text){
 /* ---------- today ---------- */
 function renderToday(){
   const h=new Date().getHours();
-  const g=D.role==='papa'
-    ?(h<5?'真夜中の出動、さすがヒーロー🌙':h<11?'おはよう、ヒーロー!きょうも家族を守ろう🦸':h<17?'こんにちは!ヒーローの活躍、家族が待ってるよ⚡':'おかえり、ヒーロー!ここからが見せ場だ🔥')
-    :(h<5?'よなかの育児、おつかれさま🌙':h<11?'おはよう!きょうもふたりで乗り切ろう☀️':h<17?'こんにちは!ここまでおつかれさま🍵':'今日もおつかれさま🌆');
+  const g=h<5?'よなかの育児、おつかれさま🌙':h<11?'おはよう!きょうもふたりで乗り切ろう☀️':h<17?'こんにちは!ここまでおつかれさま🍵':'今日もおつかれさま🌆';
   document.getElementById('greeting').textContent=g;
   const w=['日','月','火','水','木','金','土'];const n=new Date();
   document.getElementById('today-date').textContent=`${n.getMonth()+1}月${n.getDate()}日(${w[n.getDay()]})`+(D.baby?` ・ ${D.baby}とすごす1日`:'');
@@ -434,31 +426,22 @@ function sendMemo(){
 function totalPts(role){
   let s=0;Object.values(D.days).forEach(d=>d.done.forEach(x=>{if(x.by===role)s+=x.pt;}));return s;
 }
-function levelOf(pt,role){
-  const L=role==='papa'?LEVELS_PAPA:LEVELS_MAMA;
-  let lv=L[0],next=null;
-  for(let i=0;i<L.length;i++){if(pt>=L[i].pt){lv=L[i];next=L[i+1]||null;}}
+function levelOf(pt){
+  let lv=LEVELS[0],next=null;
+  for(let i=0;i<LEVELS.length;i++){if(pt>=LEVELS[i].pt){lv=LEVELS[i];next=LEVELS[i+1]||null;}}
   return {lv,next};
 }
 function renderMission(){
   const pt=totalPts(D.role);
-  const {lv,next}=levelOf(pt,D.role);
+  const {lv,next}=levelOf(pt);
   const rn=roleName(D.role);
-  const papa=D.role==='papa';
   const card=document.getElementById('level-card');
   card.classList.toggle('mama-theme',D.role==='mama');
-  card.classList.toggle('hero-theme',papa);
-  document.getElementById('level-title-label').textContent=papa?`ヒーローランク ・ 累計${pt}pt`:`${rn}レベル ・ 累計${pt}pt`;
-  document.getElementById('level-name').textContent=papa?`${lv.emoji} ${lv.name}`:`${lv.emoji} ${lv.name}${rn}`;
+  document.getElementById('level-title-label').textContent=`${rn}レベル ・ 累計${pt}pt`;
+  document.getElementById('level-name').textContent=`${lv.emoji} ${lv.name}${rn}`;
   const prog=next?Math.min(100,Math.round((pt-lv.pt)/(next.pt-lv.pt)*100)):100;
   document.getElementById('level-bar-fill').style.width=prog+'%';
-  document.getElementById('level-pts').textContent=next
-    ?(papa?`つぎの「${next.emoji} ${next.name}」まで あと${next.pt-pt}pt`:`つぎの「${next.emoji} ${next.name}${rn}」まで あと${next.pt-pt}pt`)
-    :(papa?'最高ランク到達!殿堂入りヒーロー!🏆':'最高レベル到達!すごすぎる!🎉');
-  document.getElementById('mission-list-title').textContent=papa?'🦸 きょうのヒーローミッション':'🎯 きょうのミッション';
-  document.querySelector('#report-card h2').textContent=papa?'🦸 きょうの活躍を報告':'💪 やったよ報告';
-  document.querySelector('#request-card h2').textContent=D.role==='mama'?'🚨 ヒーロー出動要請を送る':'📨 おねがいミッションを送る';
-  document.querySelector('#request-card .section-note').textContent=D.role==='mama'?'おねがいしたいことにチェックして、LINEでヒーローを呼ぼう。':'おねがいしたいことにチェックして、LINEで送ろう。';
+  document.getElementById('level-pts').textContent=next?`つぎの「${next.emoji} ${next.name}${rn}」まで あと${next.pt-pt}pt`:'最高レベル到達!すごすぎる!🎉';
 
   const dd=day();
   const doneIds=dd.done.filter(x=>x.by===D.role).map(x=>x.taskId);
@@ -473,9 +456,7 @@ function renderMission(){
   }).join('');
 
   const myPtToday=dd.done.filter(x=>x.by===D.role).reduce((s,x)=>s+x.pt,0);
-  document.getElementById('report-note').textContent=papa
-    ?`きょうのヒーロー活動:${dd.done.filter(x=>x.by===D.role).length}ミッション・${myPtToday}pt`
-    :`きょうの${rn}の実績:${dd.done.filter(x=>x.by===D.role).length}ミッション・${myPtToday}pt`;
+  document.getElementById('report-note').textContent=`きょうの${rn}の実績:${dd.done.filter(x=>x.by===D.role).length}ミッション・${myPtToday}pt`;
 
   document.getElementById('request-list').innerHTML=D.tasks.map(t=>
     `<div class="task"><input type="checkbox" class="req-check" value="${t.id}"><span class="emoji">${t.emoji}</span><span class="name">${esc(t.name)}</span><span class="pt">${t.pt}pt</span></div>`).join('');
@@ -490,9 +471,7 @@ function completeTask(id){
 }
 function celebrate(t){
   const c=document.getElementById('celebrate');
-  const msgs=D.role==='papa'
-    ?['ヒーロー参上!🦸','ママを救った!','家族を守った!','さすがヒーロー!','神ってる!']
-    :['ミッションクリア!','ナイス!','さすが!','神対応!','最高!'];
+  const msgs=['ミッションクリア!','ナイス!','さすが!','神対応!','最高!'];
   c.innerHTML=`<div class="box"><div class="big">${t.emoji}</div><div class="msg">${msgs[Math.floor(Math.random()*msgs.length)]}</div><div class="pt">+${t.pt}pt ゲット!</div></div>`;
   c.classList.remove('hidden');
   setTimeout(()=>c.classList.add('hidden'),1400);
@@ -502,18 +481,17 @@ function sendReport(){
   const mine=dd.done.filter(x=>x.by===D.role);
   if(!mine.length){toast('まだきょうの実績がないよ');return;}
   const pt=mine.reduce((s,x)=>s+x.pt,0);
-  const papa=D.role==='papa';
-  const lines=[papa?'🦸 ヒーローパパ、本日の活動報告!':'💪 ママのミッション完了報告!'];
+  const lines=[`💪 ${roleName(D.role)}のミッション完了報告!`];
   mine.forEach(x=>{const t=D.tasks.find(t=>t.id===x.taskId);lines.push(`✅ ${t?t.emoji+' '+t.name:x.taskId}(${x.time})`);});
-  lines.push(papa?`合計 ${pt}pt ゲット🎉 今日も家族を守りました🔥`:`合計 ${pt}pt ゲット🎉`);
+  lines.push(`合計 ${pt}pt ゲット🎉`);
   lineShare(lines.join('\n'));
 }
 function sendRequest(){
   const ids=[...document.querySelectorAll('.req-check:checked')].map(c=>c.value);
   if(!ids.length){toast('おねがいしたいことにチェックしてね');return;}
-  const lines=[D.role==='mama'?'🚨 SOS! ヒーローパパ、出動おねがい!':'🎯 きょうのおねがいミッション!'];
+  const lines=['🎯 きょうのおねがいミッション!'];
   ids.forEach(id=>{const t=D.tasks.find(t=>t.id===id);if(t)lines.push(`・${t.emoji} ${t.name}(${t.pt}pt)`);});
-  lines.push(D.role==='mama'?'ヒーローの活躍、待ってるね🦸✨':'よろしくおねがいします🙏✨');
+  lines.push('よろしくおねがいします🙏✨');
   lineShare(lines.join('\n'));
 }
 
@@ -617,13 +595,8 @@ function renderRecord(){
       const hard=pm>pp?'ママ':'パパ';const easy=pm>pp?'パパ':'ママ';
       const idea=ITAWARI[Math.floor(Math.random()*ITAWARI.length)];
       txt.textContent=`この1週間は${hard}のがんばりが多めみたい。`;
-      if(hard==='ママ'){
-        box.innerHTML=`<div class="itawari">🚨 <b>ヒーロー緊急ミッション!</b><br>今週はママが多めにがんばってる。ヒーローパパ、出動のとき——<br><b>${esc(idea)}</b>
-          <button class="btn btn-line btn-sm" style="margin-top:10px;width:100%" onclick="sendItawari('${hard}','${esc(idea)}')">💬 LINEで緊急ミッションを送る</button></div>`;
-      }else{
-        box.innerHTML=`<div class="itawari">💐 <b>いたわりタイム!</b><br>今週はヒーローパパが大活躍!ママから——<br><b>${esc(idea)}</b>
-          <button class="btn btn-line btn-sm" style="margin-top:10px;width:100%" onclick="sendItawari('${hard}','${esc(idea)}')">💬 LINEでいたわりミッションを送る</button></div>`;
-      }
+      box.innerHTML=`<div class="itawari">💐 <b>いたわりタイム!</b><br>${easy}さん、${hard}さんに——<br><b>${esc(idea)}</b>
+        <button class="btn btn-line btn-sm" style="margin-top:10px;width:100%" onclick="sendItawari('${hard}','${esc(idea)}')">💬 LINEでいたわりミッションを送る</button></div>`;
     }else{
       txt.textContent='いいバランス!ふたりで支え合えてるね👏';
       box.innerHTML='<div class="itawari">🌈 <b>すばらしいチームワーク!</b><br>この調子でおたがいに「ありがとう」を忘れずに♪</div>';
@@ -637,11 +610,7 @@ function renderRecord(){
     `<div class="done-log"><span>${esc(t.text)}</span><span style="display:flex;gap:6px;align-items:center"><span class="tag ${t.from}">${roleName(t.from)}</span><span class="sub">${t.date.slice(5).replace('-','/')}</span></span></div>`).join('');
 }
 function sendItawari(hard,idea){
-  if(hard==='ママ'){
-    lineShare(`🚨 ヒーロー緊急ミッション発動!\n今週はママががんばってくれたから…\n「${idea}」\nヒーローパパの出番だよ🦸✨`);
-  }else{
-    lineShare(`💐 いたわりミッション発動!\n今週はヒーローパパが大活躍だったから…\n「${idea}」\nいつも守ってくれてありがとう🤝`);
-  }
+  lineShare(`💐 いたわりミッション発動!\n今週は${hard}ががんばってくれたから…\n「${idea}」\nおたがいさまで支え合おうね🤝`);
 }
 
 /* ---------- settings ---------- */
@@ -688,7 +657,7 @@ function toast(msg){
   toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
 }
 function renderAll(){
-  document.getElementById('role-badge').textContent=D.role==='mama'?'👩 ママモード':'🦸 ヒーローパパモード';
+  document.getElementById('role-badge').textContent=(D.role==='mama'?'👩 ママ':'👨 パパ')+'モード';
   renderToday();renderMission();renderGuide();renderRecord();renderSettings();
 }
 
